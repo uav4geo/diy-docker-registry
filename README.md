@@ -32,3 +32,6 @@ docker run --rm --entrypoint htpasswd httpd:2 -Bbn USERNAM_HERE PASSWORD_HERE > 
 
 By default the LetsEncrypt certificate will not auto-renew. You should add a cron job that runs `docker restart registry` every month.
 
+## Tips
+
+You can use [docker-reg-tool](https://github.com/byrnedo/docker-reg-tool) to manage images.
