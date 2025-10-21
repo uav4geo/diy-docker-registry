@@ -1,0 +1,35 @@
+version: 0.1
+log:
+  fields:
+    service: registry
+storage:
+  cache:
+    blobdescriptor: inmemory
+  filesystem:
+    rootdirectory: /var/lib/registry
+  tag:
+    concurrencylimit: 8
+  delete:
+    enabled: true
+http:
+  addr: :5000
+  host: https://yourhost.com
+  headers:
+    X-Content-Type-Options: [nosniff]
+  tls:
+    letsencrypt:
+      hosts: [yourhost.com]
+      cachefile: /etc/distribution/letsencrypt.json
+      email: youremail@yourhost.com
+      directoryurl: https://acme-v02.api.letsencrypt.org/directory
+auth:
+  htpasswd:
+    realm: basic-realm
+    path: /auth/htpasswd
+health:
+  storagedriver:
+    enabled: true
+    interval: 10s
+    threshold: 3
+prometheus:
+  enabled: false
